@@ -28,7 +28,7 @@ VGG_model = VGG16(weights='imagenet', include_top=False, input_shape=(SIZE, SIZE
 
 # nofire test
 #img_path = "WRI/test/nofire/Landsat7_20211216_00_0-0.jpg"
-img_path = "1.jpg"
+img_path = "3.jpg"
 
 #pimg1 = bucket.Object(img_path).get().get('Body').read()
 #pimg1 = img_path
@@ -47,3 +47,5 @@ prediction = model2.predict(input_img_features)[0]
 print("The prediction for this image is: ", prediction)
 a = "fire" if prediction == 0 else "negative"
 print("The prediction for this image is: ", a)
+
+with open('/tmp/gg-amazing-forestfire.log', 'a') as f: print(a, file=f)
